@@ -1,9 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>God Jul — David Lindqvist</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <!-- SNÖFALL -->
+  <body>
+    <header class="site-header">
+      <h1 class="title">God Jul</h1>
+      <p class="subtitle">Välkommen till min julhemsida</p>
+    </header>
+
+    <main class="container">
+      <section class="media">
+        <div class="audio-box">
+          <h2>Juliga toner</h2>
+          <audio controls preload="none">
+            <source src="song.mp3" type="audio/mpeg" />
+            Din webbläsare stödjer inte audio-elementet.
+          </audio>
+        </div>
+
+        <figure class="hero">
+          <img src="julbild.jpg" alt="Julbild — gran och ljus" />
+          <figcaption>En stämningsfull julbild</figcaption>
+        </figure>
+      </section>
+
+      <section class="poem">
+        <h2>Juldikt</h2>
+        <div class="poem-box">
+          <blockquote>
+            <p>
+              Snön faller tyst i vinterkvällens famn,<br />
+              ljus i fönstren, en stilla hamn.<br />
+              Hjärta som värms av vänners sång,<br />
+              i natt är världen mild och lång.
+            </p>
+          </blockquote>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">david lindqvist</footer>
+    <div class="snow"></div>
+    <script>
+      // Skapar snöflingor automatiskt
+      const snowContainer = document.querySelector(".snow");
+
+      function createSnowflake() {
+        const flake = document.createElement("div");
+        flake.classList.add("snowflake");
+        flake.textContent = "❄";
+
+        // slumpad position & storlek
+        flake.style.left = Math.random() * 100 + "vw";
+        flake.style.fontSize = Math.random() * 12 + 10 + "px";
+        flake.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+        snowContainer.appendChild(flake);
+
+        setTimeout(() => {
+          flake.remove();
+        }, 6000);
+      }
+
+      setInterval(createSnowflake, 200);
+    </script>
+  </body>
 </html>

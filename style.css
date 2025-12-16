@@ -1,0 +1,156 @@
+:root {
+  --bg: #0b1410;
+  --panel: #0f2a1f;
+  --accent: #c99b3b;
+  --red: #8b1e2f;
+  --text: #f6f5f0;
+  --muted: #cfc9bf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(180deg, var(--bg), #07110c);
+  color: var(--text);
+}
+
+/* Make footer stick to bottom when content is short */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-header {
+  padding: 3rem 1rem 1rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.4rem;
+  margin: 0;
+  color: var(--accent);
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+  /* allow main content to grow and push footer down */
+  flex: 1 0 auto;
+}
+
+.media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.audio-box {
+  background: var(--panel);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(201, 155, 59, 0.15);
+}
+
+.audio-box h2 {
+  color: var(--accent);
+  margin-top: 0;
+}
+
+.audio-box audio {
+  width: 100%;
+}
+
+.hero {
+  text-align: center;
+}
+
+.hero img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.hero figcaption {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+.poem {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-left: 4px solid var(--red);
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.poem h2 {
+  color: var(--red);
+}
+
+.poem blockquote {
+  margin: 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.site-footer {
+  text-align: center;
+  /* when layout is a column flex, margin-top:auto ensures it's pushed to bottom */
+  margin-top: auto;
+  padding: 1rem;
+  color: var(--muted);
+  font-weight: bold;
+  position: relative;
+  z-index: 10; /* ensure footer appears above snowflakes */
+}
+
+/* Responsiv */
+@media (max-width: 800px) {
+  .media {
+    grid-template-columns: 1fr;
+  }
+}
+/* SNÖFALL */
+.snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0; /* keep snow under UI like footer */
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: white;
+  opacity: 0.9;
+  animation-name: fall;
+  animation-timing-function: linear;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0.2;
+  }
+}
